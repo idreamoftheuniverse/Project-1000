@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web AR</title>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <script src="https://raw.githack.com/whitehatjr/ar-gesture-handler/main/index.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; trakingMethod: best"
+      vr-method-ui="enabled: false"
+    >
+      <a-assets>
+        <a-assets-item
+          id="tiger"
+          src="./assets/electric-circuit/source/archive/sketch.gltf"
+        ></a-assets-item>
+      </a-assets>
+
+      <a-marker preset="hiro">
+        <a-entity
+          id="model"
+          position="-1 -3 0"
+          gltf-model="#tiger"
+          rotation="-90 0 0"
+          scale="10 5 5"
+          animation-mixer
+        ></a-entity>
+      </a-marker>
+    </a-scene>
+  </body>
+</html>
